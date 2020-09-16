@@ -1,0 +1,150 @@
+.koch
+  .fractal, order line lines
+    .equal
+      a. order
+      b. 0
+    .array.element
+      el. line
+      array. lines
+  .fractal, order line lines
+    .compareInclusive
+      greater. order
+      lesser. 1
+    .math.number.isInteger
+      number. order
+    .math.trig.line
+      x0. line0x0
+      y0. line0y0
+      x1. line3x1
+      y1. line3y1
+      line. line
+      length. fractalLength
+      angle. fractalAngle
+    .math.divide
+      n. fractalLength
+      by. 3
+      x. segmentLength
+    .math.trig.degrees
+      n. 60
+      d. degrees
+    .math.subtract
+      a. fractalAngle
+      b. degrees
+      x. line1angle
+    .math.add
+      a. fractalAngle
+      b. degrees
+      x. line2angle
+    .math.trig.line
+      x0. line0x0
+      y0. line0y0
+      x1. line0x1
+      y1. line0y1
+      length. segmentLength
+      angle. fractalAngle
+      line. line0
+    .math.trig.line
+      x0. line0x1
+      y0. line0y1
+      x1. line1x1
+      y1. line1y1
+      length. segmentLength
+      angle. line1angle
+      line. line1
+    .math.trig.line
+      x0. line1x1
+      y0. line1y1
+      x1. line2x1
+      y1. line2y1
+      length. segmentLength
+      angle. line2angle
+      line. line2
+    .math.trig.line
+      x0. line2x1
+      y0. line2y1
+      x1. line3x1
+      y1. line3y1
+      length. segmentLength
+      angle. fractalAngle
+      line. line3
+    .math.subtract
+      a. order
+      b. 1
+      x. orderLessOne
+    .koch.fractal
+      order. orderLessOne
+      line. line0
+      lines. fractal0
+    .koch.fractal
+      order. orderLessOne
+      line. line1
+      lines. fractal1
+    .koch.fractal
+      order. orderLessOne
+      line. line2
+      lines. fractal2
+    .koch.fractal
+      order. orderLessOne
+      line. line3
+      lines. fractal3
+    .array.elements
+      els. fractal0
+      array. lines
+    .array.elements
+      els. fractal1
+      array. lines
+    .array.elements
+      els. fractal2
+      array. lines
+    .array.elements
+      els. fractal3
+      array. lines
+.main, args out
+  .array.element
+    i. 0
+    el. orderString
+    array. args
+  .array.element
+    i. 1
+    el. x0String
+    array. args
+  .array.element
+    i. 2
+    el. y0String
+    array. args
+  .array.element
+    i. 3
+    el. x1String
+    array. args
+  .array.element
+    i. 4
+    el. y1String
+    array. args
+  .string.parseInt
+    str. orderString
+    n. order
+  .string.parseInt
+    str. x0String
+    n. x0
+  .string.parseInt
+    str. y0String
+    n. y0
+  .string.parseInt
+    str. x1String
+    n. x1
+  .string.parseInt
+    str. y1String
+    n. y1
+  .math.trig.line
+    x0. x0
+    y0. y0
+    x1. x1
+    y1. y1
+    line. line
+  .koch.fractal
+    order. order
+    line. line
+    lines. lines
+  .object.dump
+    obj. lines
+    str. out
